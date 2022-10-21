@@ -1,12 +1,12 @@
 {
-  "name": "MarcelPluginVcub",
+  "name": "Plugin VCub",
   "description": "Display vcub station",
   "eltName": "marcel-plugin-vcub",
   "icon": "picture_in_picture_alt",
   "frontend": {
     "props": [
       {
-        "name": "Data Bordeaux key",
+        "name": "apiKey",
         "description": "API key to manage open data Bordeaux",
         "type": "string",
         "value": ""

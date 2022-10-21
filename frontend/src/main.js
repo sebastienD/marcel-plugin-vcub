@@ -5,9 +5,9 @@ class MarcelPluginVcub extends Marcel.Plugin {
   }
 
   render() {
-    const { firstName, stylesvar = {} } = this.props
+    const { apiKey, stylesvar = {} } = this.props
 
-    this.root.innerText = `Hello ${firstName} !`
+    this.root.innerText = `Hello ${apiKey} !`
 
     // stylesvar is a special property containing the global media theme.
     // You should use it to have a consistent style accross all the media.

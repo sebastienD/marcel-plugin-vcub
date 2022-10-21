@@ -3,7 +3,27 @@ class MarcelPluginVcub extends Marcel.Plugin {
   constructor() {
     super()
     this.root = document.getElementById('root')
+    this.map = document.getElementById('map')
     this.dataBordeauxUrl='https://data.bordeaux-metropole.fr/geojson?key={{key}}&typename=ci_vcub_p'
+    //this.mapView = this.initMapView()
+  }
+
+  initMapView() {
+    var mapView = L.map('map').setView([44.886937, -0.56695972], 13);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(mapView);
+
+    var circle = L.circle([44.886937, -0.56695972], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 500
+    }).addTo(mapView);
+    circle.bindPopup("Je suis à Bdx.io 😎");
+
+    return mapView
   }
 
   getData(apiKey) {
@@ -14,14 +34,17 @@ class MarcelPluginVcub extends Marcel.Plugin {
   propsDidChange() {
       const { apiKey } = this.props
       this.getData(apiKey).then(data => {
-          this.root.innerText = data.type
+          console.log(data)
+          let mapView = this.initMapView()
+          data.features.map(feat => {
+              let coord = feat.geometry.coordinates
+              L.marker([coord[1], coord[0]]).addTo(mapView);
+          })
       })
   }
 
   render() {
     const { apiKey, stylesvar = {} } = this.props
-
-    this.root.innerText = `Loading...`
 
     // stylesvar is a special property containing the global media theme.
     // You should use it to have a consistent style accross all the media.
@@ -33,4 +56,4 @@ class MarcelPluginVcub extends Marcel.Plugin {
 Marcel.init(MarcelPluginVcub)
 
 // uncomment this line to try the plugin in a browser :
-// Marcel.changeProps({ apiKey: '...' })
+Marcel.changeProps({ apiKey: '334BCKOWWZ' })

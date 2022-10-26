@@ -4,8 +4,57 @@ body {
   overflow: hidden;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #EE2238 0%, #BF1D67 100%);
+  position: relative;
+}
+
+.logo {
+  width: 160px;
+  position: fixed;
+  z-index: 1000;
+  top: 2em;
+  right:1.2em;
+}
+
+.vcub {
+  width: 100px;
+  position: fixed;
+  z-index: 1000;
+  bottom: 3em;
+  left: 3.5em;
 }
 
 #map {
-    height: 100vh;
+    height: 90vh;
+    width: 95vw;
+    /* border-radius: 20px; */
+    border-radius: 0px 30px 0px 30px;
+    border: solid 15px #4b4b4b;
 }
+
+.custom-popup .leaflet-popup-content-wrapper {
+  background: linear-gradient(45deg, #EE2238 0%, #BF1D67 100%);
+  color:#fff;
+  font-size:16px;
+  /* line-height:24px; */
+  /* text-shadow: black 1px 1px 2px; */
+  }
+.custom-popup .leaflet-popup-content-wrapper a {
+    color:rgba(255,255,255,0.1);
+  }
+.custom-popup .leaflet-popup-tip-container {
+  width:30px;
+  height:15px;
+  }
+.custom-popup .leaflet-popup-tip {
+    background: linear-gradient(45deg, #EE2238 0%, #BF1D67 100%);
+    border: none;
+    box-shadow: none;
+  }
+
+  .awesome-marker i {
+    color: #fff;
+  }

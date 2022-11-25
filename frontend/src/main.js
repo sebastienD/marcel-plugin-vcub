@@ -79,4 +79,4 @@ class MarcelPluginVcub extends Marcel.Plugin {
 Marcel.init(MarcelPluginVcub)
 
 // uncomment this line to try the plugin in a browser :
-Marcel.changeProps({ apiKey: '334BCKOWWZ' })
+//Marcel.changeProps({ apiKey: '334BCKOWWZ' })
